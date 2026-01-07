@@ -1,0 +1,73 @@
+.login-box{
+    background: white;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px 25px;
+    gap: 5px;
+}
+.login-box img{
+    height: 60px;
+    width: auto;
+    margin-bottom: 5px;
+}
+.login-box p{
+    text-align: center;
+    color: gray;
+    font-size: 17px;
+}
+.login-box strong{
+    color: black;
+    font-size: 25px;
+}
+.login-form{
+    gap: 15px;
+}
+.login-signin-btn{
+    background: #396BCA !important;
+}
+.login-signin-btn:hover{
+    background: #0e3d6f !important;
+}
+.login-signin-btn, .login-signin-btn:hover{
+    color: white !important;
+    font-size: 15px;
+    font-weight: 500;
+    height: 50px;
+}
+.login-form-box label{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.login-form-box input{
+    width: 100%;
+    border: none;
+    background: #e2e9f6;
+    border-radius: 5px;
+    padding: 10px;
+}
+.login-form-box input::placeholder{
+    font-size: 14px;
+}
+.login-form a{
+    font-size: 12px;
+    margin-top: -10px;
+}
+.login-check{
+    color: gray;
+    font-size: 13px;
+}
+.form-check-input:focus{
+    box-shadow: none;
+}
+
+@media screen and (max-width: 992px) {
+    .login-box img{
+        height: 50px;
+    }
+    .login-box strong{
+        font-size: 20px;
+    }
+    .login-box p{
+        font-size: 16px;
+    }
+}

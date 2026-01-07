@@ -1,0 +1,47 @@
+/*----------------------------common classes---------------------------*/
+
+a{
+  color: inherit;
+  text-decoration: none !important;
+}
+p, h1, h2, h3, h4, h5, h6{
+  margin-bottom: 0px !important;
+}
+.cent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btwn{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.start{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.fd-col{
+  flex-direction: column;
+}
+.fd-row{
+  flex-direction: row;
+}
+.mar-auto{
+  margin: auto;
+}
+
+/*---------------------login page------------*/
+.login-page{
+  background-image: url('/images/login/img-loginbg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 700px;
+}
+@media screen and (max-width: 767px) {
+  .login-page{
+    height: 600px;
+  }
+}
