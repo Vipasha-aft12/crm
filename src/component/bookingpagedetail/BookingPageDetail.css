@@ -1,0 +1,50 @@
+.bookingpage-detail{
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 14px;
+}
+.bookingpage-detail-box label{
+    font-size: 14px;
+    font-weight: 500;
+    color: gray;
+    margin-bottom: 5px;
+}
+.bookingpage-detail-box{
+    width: 24%;
+}
+.bookingpage-detail-box input, .bookingpage-detail-box select{
+    border: none;
+    border-radius: 5px;
+    background: #eeeeee;
+    width: 100%;
+    height: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.form-select:focus{
+    box-shadow: none;
+}
+.form-select, .bookingpage-detail-box input::placeholder{
+    font-size: 13px;
+    color: black;
+}
+input[type="date"] {
+  font-size: 13px;
+}
+.bookingpage-detail-search-btn{
+    background: #396BCA;
+    display: flex !important;
+    align-items: center !important;
+    gap: 3px;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    margin-left: auto;
+}
+.bookingpage-detail-search-btn img{
+    height: 23px;
+    width: auto;
+}
+.bookingpage-detail-search-btn:hover{
+    background: #0e3d6f;
+}

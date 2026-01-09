@@ -1,0 +1,28 @@
+.sidenav{
+    background: rgb(42, 42, 42);
+    height: 100%;
+}
+.sidenav-linkbox img{
+    height: 32px;
+    width: 32px;
+}
+.sidenav-col{
+    gap: 35px;
+}
+.sidenav-logo{
+    background: white;
+    border-radius: 5px;
+}
+.sidenav-logo img{
+    height: 90px;
+    width: auto;
+}
+.sidenav-links{
+    gap: 20px;
+}
+.sidenav-linkbox{
+    align-items: center !important;
+    gap: 5px;
+    color: white;
+    font-size: 15px;
+}
