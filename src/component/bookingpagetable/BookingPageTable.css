@@ -1,0 +1,53 @@
+.bookingpage-table-top img{
+    height: 15px;
+    width: auto;
+}
+.bookingpage-table{
+    background: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    gap: 25px 0px;
+}
+.bookingpage-table-top{
+    border-bottom: 1px solid lightgray;
+}
+.bookingpage-table-top p{
+    font-size: 15px;
+    color: gray;
+    font-weight: 500;
+}
+.bookingpage-table-top-btn, .bookingpage-table-top-btn:hover{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex !important;
+    height: 40px;
+    padding: 5px 15px;
+    gap: 5px;
+}
+.bookingpage-table-top-btn p{
+    font-size: 14px;
+}
+.bookingpage-table-top-buttons{
+    gap: 15px;
+}
+.bookingpage-table-top-btn-blue, .bookingpage-table-top-btn-blue:hover{
+    background: #396BCA !important;
+}
+.bookingpage-table-top-btn-blue p{
+    color: white !important;
+}
+.bookingpage-table-mid-left, .bookingpage-table-mid-right{
+    gap: 5px;
+}
+.bookingpage-table-mid-left p, .bookingpage-table-mid-right label, .bookingpage-table-last p{
+    font-size: 14px;
+}
+.bookingpage-table .page-link:hover, .bookingpage-table .page-link{
+    background: #396BCA ;
+    color: white ;
+}
+.page-link-number, .page-link-number:hover{
+    background: white !important;
+    color: black !important;
+}

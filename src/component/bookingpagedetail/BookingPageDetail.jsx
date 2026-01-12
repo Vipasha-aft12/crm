@@ -110,6 +110,23 @@ const BookingPageDetail = () => {
                     <p>Search</p>
                 </button>
             </div>
+            <div className="bookingpage-detail-custom-card start fd-row w-100 mt-2">
+                <div className="bp-custom-card cent">
+                    <p>Custom Card</p>
+                </div>
+                <div className="bp-custom-card cent">
+                    <p>Custom Card</p>
+                </div>
+                <div className="bp-custom-card cent">
+                    <p>Custom Card</p>
+                </div>
+                <div className="bp-custom-card cent">
+                    <p>Custom Card</p>
+                </div>
+                <div className="bp-custom-card cent">
+                    <p>Custom Card</p>
+                </div>
+            </div>
         </div>
     )
 }

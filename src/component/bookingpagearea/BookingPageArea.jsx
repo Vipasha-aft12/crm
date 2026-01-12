@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import './BookingPageArea.css';
 import BookingPageDetail from "../bookingpagedetail/BookingPageDetail";
+import BookingPageTable from "../bookingpagetable/BookingPageTable";
 
 const BookingPageArea = () => {
     return (
@@ -66,21 +67,26 @@ const BookingPageArea = () => {
                     <div className="tab-pane fade show active start fd-col" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
                         <h4>MANAGE CART - FLIGHT</h4>
                         <BookingPageDetail />
+                         
                     </div>
                     <div className="tab-pane fade start fd-col" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
                         <h4>MANAGE CART - PACKAGE</h4>
                         <BookingPageDetail />
+                        
                     </div>
                     <div className="tab-pane fade start fd-col start fd-col" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
                         <h4>MANAGE CART - HOTEL</h4>
                         <BookingPageDetail />
+                         
                     </div>
                     <div className="tab-pane fade start fd-col" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab" tabindex="0">
                         <h4>MANAGE CART - CAR RENTAL</h4>
                         <BookingPageDetail />
+                         
                     </div>
                 </div>
             </div>
+            <BookingPageTable />
         </div>
     )
 }
