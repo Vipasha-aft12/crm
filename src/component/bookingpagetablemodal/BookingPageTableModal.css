@@ -1,0 +1,179 @@
+.accordion {
+    width: 1150px;
+}
+
+.modal-content {
+    width: 1200px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-left: -300px;
+}
+
+.accordion-collapse,
+.accordion-body {
+    width: 1170px;
+}
+.accordion-body{
+    height: auto;
+}
+
+
+.accordion-content {
+  height: auto;
+}
+
+.accordion-body p {
+    white-space: normal !important;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    flex: 1 1 auto;
+    margin: 0;
+
+}
+
+.bookkp-modal .accordion-button>p{
+    color: #0e3d6f;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.tab-box-collection{
+    margin-left: auto;
+    gap: 20px;
+}
+.bookkp-modal .accordion-button:after{
+    margin-left: 10px;
+}
+.tab-box img {
+    height: 15px;
+    width: auto;
+}
+.tab-box{
+ gap: 5px;   
+ border: 1px solid lightgray;
+ border-radius: 5px;
+ padding: 5px 10px;
+ margin-left: auto;
+ background: white;
+}
+.tab-box p{
+    font-size: 12px;
+    font-weight: 500;
+}
+.bookkp-modal .accordion-button{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+.bookkp-modal .accordion-header, .bookkp-modal .accordion-item{
+    border-radius: 10px !important;
+}
+.last-booking-item .accordion-button:after{
+    margin-left: auto !important;
+}
+.cart-info{
+    width: 100%;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+.cart-info-box{
+    width: 30%;
+    border-bottom: 1px solid rgb(236, 235, 235);
+    padding: 5px;
+    gap: 10px;
+}
+.cart-info-box p{
+    font-size: 14px;
+    color: gray;
+}
+.cart-info-box strong{
+    color: #0e3d6f;
+}
+.b-detail-row{
+    padding: 10px;
+    gap: 25px 0px;
+}
+.b-detail-colone-colthree{
+    gap: 25px;
+    flex-wrap: wrap;
+}
+.b-detail-colone-colthreebox{
+    width: 30%;
+    border-bottom: 1px solid rgb(236, 235, 235);
+    padding: 5px;
+}
+.b-detail-colone-colthreebox p{
+    font-size: 14px;
+    color: gray;
+}
+.b-detail-colone-colthreebox strong{
+    color: #0e3d6f;
+}
+.b-detail-airline{
+    gap: 5px;
+    width: 25%;
+    justify-content: flex-start !important;
+}
+.b-detail-airline img{
+    height: 60px;
+    width: auto;
+    border-radius: 5px;
+}
+.circle-image{
+    height: 10px;
+    width: auto;
+}
+.b-detail-airline-name p{
+    color: gray;
+    font-size: 13px;
+}
+.b-detail-airline-name strong{
+    color: black;
+    font-size: 16px;
+}
+.b-detail-airline-d{
+    width: 75%;
+    align-items: flex-start !important;
+    gap: 10px;
+}
+.b-detail-airline-d-one p{
+    font-size: 12px;
+    text-align: right;
+}
+.b-detail-airline-d-one{
+    width: 37%;
+}
+.b-detail-airline-d-three p{
+    text-align: left;
+}
+.b-detail-airline-d-one-stops-line{
+    height: 2px;
+    width: 50px;
+    border-top: 1px dashed lightgray;
+}
+.right-arrow{
+    height: 15px;
+    width: auto;
+}
+.b-detail-airline-d-one-stops p{
+    font-size: 11px;
+    display: inline-block;
+}
+.b-detail-colone-coltwobox{
+    width: 100%;
+    border: 1px solid lightgray;
+    background: #f8f6f6;
+    border-radius: 10px;
+    padding: 10px 15px;
+    gap: 5px;
+}
+.b-detail-colone-coltwobox p{
+    font-size: 13px;
+    color: gray;
+}
+.b-detail-colone-coltwobox strong{
+    color: #0e3d6f;
+    font-size: 15px;
+}
+.b-detail-colone-coltwobox span{
+    font-size: 11px;
+    margin-top: 5px;
+}
