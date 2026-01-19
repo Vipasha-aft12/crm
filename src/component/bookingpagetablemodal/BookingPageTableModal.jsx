@@ -11,7 +11,7 @@ const BookingPageTableModal = () => {
     return (
         <div className="bookkp-modal start fd-col">
 
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" className="btn bookkp-modal-button btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 TO100257847212
             </button>
 

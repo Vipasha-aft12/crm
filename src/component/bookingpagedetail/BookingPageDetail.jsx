@@ -111,19 +111,24 @@ const BookingPageDetail = () => {
                 </button>
             </div>
             <div className="bookingpage-detail-custom-card start fd-row w-100 mt-2">
-                <div className="bp-custom-card cent">
+                <div className="bp-custom-card cent fd-col">
+                    <p><strong>0</strong></p>
                     <p>Custom Card</p>
                 </div>
-                <div className="bp-custom-card cent">
+                <div className="bp-custom-card cent fd-col">
+                     <p><strong>0</strong></p>
                     <p>Custom Card</p>
                 </div>
-                <div className="bp-custom-card cent">
+                <div className="bp-custom-card cent fd-col">
+                     <p><strong>0</strong></p>
                     <p>Custom Card</p>
                 </div>
-                <div className="bp-custom-card cent">
+                <div className="bp-custom-card cent fd-col">
+                     <p><strong>0</strong></p>
                     <p>Custom Card</p>
                 </div>
-                <div className="bp-custom-card cent">
+                <div className="bp-custom-card cent fd-col">
+                     <p><strong>0</strong></p>
                     <p>Custom Card</p>
                 </div>
             </div>
