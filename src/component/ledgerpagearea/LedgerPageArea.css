@@ -1,0 +1,9 @@
+.ledgerpagebox-heading img{
+    height: 32px;
+    width: 32px;
+}
+.ledgerpagebox{
+    background: #dfeaf5;
+    padding: 20px;
+    gap: 25px;
+}

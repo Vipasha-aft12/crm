@@ -1,0 +1,53 @@
+.ledgerpage-table-top img{
+    height: 15px;
+    width: auto;
+}
+.ledgerpage-table{
+    background: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    gap: 25px 0px;
+}
+.ledgerpage-table-top{
+    border-bottom: 1px solid lightgray;
+}
+.ledgerpage-table-top p{
+    font-size: 15px;
+    color: gray;
+    font-weight: 500;
+}
+.ledgerpage-table-top-btn, .ledgerpage-table-top-btn:hover{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex !important;
+    height: 40px;
+    padding: 5px 15px;
+    gap: 5px;
+}
+.ledgerpage-table-top-btn p{
+    font-size: 14px;
+}
+.ledgerpage-table-top-buttons{
+    gap: 15px;
+}
+.ledgerpage-table-top-btn-blue, .ledgerpage-table-top-btn-blue:hover{
+    background: #396BCA !important;
+}
+.ledgerpage-table-top-btn-blue p{
+    color: white !important;
+}
+.ledgerpage-table-mid-left, .ledgerpage-table-mid-right{
+    gap: 5px;
+}
+.ledgerpage-table-mid-left p, .ledgerpage-table-mid-right label, .ledgerpage-table-last p{
+    font-size: 14px;
+}
+.ledgerpage-table .page-link:hover, .ledgerpage-table .page-link{
+    background: #396BCA ;
+    color: white ;
+}
+.page-link-number, .page-link-number:hover{
+    background: white !important;
+    color: black !important;
+}

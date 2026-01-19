@@ -61,7 +61,7 @@ const SideNav = () => {
                                 alt='crm icon' />
                             <p>Change Request</p>
                             </Link>
-                            <Link href='/' className="sidenav-linkbox start fd-row">
+                            <Link href='/ledgerpassbook' className="sidenav-linkbox start fd-row">
                             <Image
                                 src='/images/icons/ledger-passbook.webp'
                                 className="img-fluid"

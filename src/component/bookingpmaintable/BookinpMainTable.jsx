@@ -18,7 +18,7 @@ const BookingpMainTable = () => {
                 <div className="col-12 w-100">
                     <div className="table-wrapper px-2">
                         <table>
-                            <thead>
+                            <thead> 
                                 <tr>
                                     <th><input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" /> Select All</th>
                                     <th>Generation Time</th>

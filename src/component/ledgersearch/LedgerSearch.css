@@ -1,0 +1,52 @@
+.ledger-search-row{
+    margin: auto;
+     background: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    gap: 25px 0px;
+    padding: 10px 0px;
+}
+.ledger-search-row .col-12{
+    padding: 10px 15px;
+}
+.ledger-search-colone{
+    border-bottom: 1px solid lightgray;
+}
+.ledger-search-colone p{
+    font-size: 20px;
+    color: #396BCA;
+}
+.ledger-search-colthree{
+    justify-content: flex-end !important;
+    border-top: 1px solid lightgray;
+}
+.ledger-search-btn, .ledger-search-btn:hover{
+    border-radius: 5px !important;
+    background: #396BCA !important;
+    color: white !important;
+    font-size: 15px !important;
+    height: 40px;
+    width: 15%;
+}
+.ledger-search-coltwo{
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.ledger-search-coltwo-box{
+    width: 18%;
+    gap: 5px;
+}
+.ledger-search-coltwo-box lable{
+    color: gray;
+    font-size: 14px;
+}
+.ledger-search-coltwo-box input, .ledger-search-coltwo-box select{
+    border: 1px solid lightgray;
+    background: #eee;
+    border-radius: 5px;
+    height: 40px;
+    padding: 5px;
+}
+.ledger-search-coltwo-box input{
+    width: 100%;
+}
