@@ -1,0 +1,68 @@
+/* [project]/src/component/bookingpagetable/BookingPageTable.css [app-client] (css) */
+.bookingpage-table-top img {
+  width: auto;
+  height: 15px;
+}
+
+.bookingpage-table {
+  background: #fff;
+  border-radius: 10px;
+  gap: 25px 0;
+  box-shadow: 0 1px 4px #00000029;
+}
+
+.bookingpage-table-top {
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.bookingpage-table-top p {
+  color: gray;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.bookingpage-table-top-btn, .bookingpage-table-top-btn:hover {
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  gap: 5px;
+  height: 40px;
+  padding: 5px 15px;
+  box-shadow: 0 1px 4px #00000029;
+  display: flex !important;
+}
+
+.bookingpage-table-top-btn p {
+  font-size: 14px;
+}
+
+.bookingpage-table-top-buttons {
+  gap: 15px;
+}
+
+.bookingpage-table-top-btn-blue, .bookingpage-table-top-btn-blue:hover {
+  background: #396bca !important;
+}
+
+.bookingpage-table-top-btn-blue p {
+  color: #fff !important;
+}
+
+.bookingpage-table-mid-left, .bookingpage-table-mid-right {
+  gap: 5px;
+}
+
+.bookingpage-table-mid-left p, .bookingpage-table-mid-right label, .bookingpage-table-last p {
+  font-size: 14px;
+}
+
+.bookingpage-table .page-link:hover, .bookingpage-table .page-link {
+  color: #fff;
+  background: #396bca;
+}
+
+.page-link-number, .page-link-number:hover {
+  color: #000 !important;
+  background: #fff !important;
+}
+
+/*# sourceMappingURL=src_component_bookingpagetable_BookingPageTable_css_bad6b30c._.single.css.map*/

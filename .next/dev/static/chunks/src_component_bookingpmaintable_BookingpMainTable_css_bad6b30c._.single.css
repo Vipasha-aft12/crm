@@ -1,0 +1,24 @@
+/* [project]/src/component/bookingpmaintable/BookingpMainTable.css [app-client] (css) */
+.table-wrapper {
+  -webkit-overflow-scrolling: touch;
+  width: 1130px;
+  overflow-x: scroll !important;
+}
+
+.table-wrapper table {
+  border-radius: 10px;
+  width: 1130px;
+  max-width: none;
+}
+
+.table-wrapper th, .table-wrapper td {
+  white-space: nowrap;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+}
+
+.table-wrapper th {
+  background: #eee;
+}
+
+/*# sourceMappingURL=src_component_bookingpmaintable_BookingpMainTable_css_bad6b30c._.single.css.map*/

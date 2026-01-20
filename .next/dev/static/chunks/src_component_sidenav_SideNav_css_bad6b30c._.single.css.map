@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/component/sidenav/SideNav.css"],"sourcesContent":[".sidenav{\n    background: rgb(42, 42, 42);\n    height: 100%;\n}\n.sidenav-linkbox img{\n    height: 32px;\n    width: 32px;\n}\n.sidenav-col{\n    gap: 35px;\n}\n.sidenav-logo{\n    background: white;\n    border-radius: 5px;\n}\n.sidenav-logo img{\n    height: 70px;\n    width: auto;\n}\n.sidenav-links{\n    gap: 20px;\n}\n.sidenav-linkbox{\n    align-items: center !important;\n    gap: 5px;\n    color: white;\n    font-size: 15px;\n}"],"names":[],"mappings":"AAAA;;;;;AAIA;;;;;AAIA;;;;AAGA;;;;;AAIA;;;;;AAIA;;;;AAGA"}}]
+}
