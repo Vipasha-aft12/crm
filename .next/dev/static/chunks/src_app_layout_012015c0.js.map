@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/sachinkumar/Desktop/crm/src/app/layout.js"],"sourcesContent":["\"use client\"\nimport \"./globals.css\";\nimport 'bootstrap/dist/css/bootstrap.min.css';\nimport 'bootstrap/dist/js/bootstrap.bundle.min.js';\n\n\nexport default function RootLayout({ children }) {\n  return (\n    <html lang=\"en\">\n      <body>\n          {children}\n      </body>\n    </html>\n  );\n}\n"],"names":["c","_c","RootLayout","t0","$","$i","Symbol","for","children","t1"],"mappings":";;;;;AAAY,SAAAA,CAAA,IAAAC,EAAA;AAGZ,OAAO,2CAA2C;AAHlD,YAAY;;;;;;AAMG,oBAAAE,EAAA;IAAA,MAAAC,CAAA,OAAAH,gLAAA,EAAA;IAAA,IAAAG,CAAA,CAAA,EAAA,KAAA,oEAAA;QAAA,IAAA,IAAAC,EAAA,GAAA,GAAAA,EAAA,GAAA,GAAAA,EAAA,IAAA,EAAA;YAAAD,CAAA,CAAAC,EAAA,CAAA,GAAAC,MAAA,CAAAC,GAAA,CAAA;QAAA;QAAAH,CAAA,CAAA,EAAA,GAAA;IAAA;IAAoB,MAAA,EAAAI,QAAAA,EAAA,GAAAL,EAAY;IAAA,IAAAM,EAAA;IAAA,IAAAL,CAAA,CAAA,EAAA,KAAAI,QAAA,EAAA;QAE3CC,EAAA,iBAAA,6LAAA,IAIO;YAJI,IAAI,EAAJ,IAAI;oCACb,6LAAA,IAEO,CADFD;0BAAAA,QAAO,CACZ,EAFA,IAEO,CACT,EAJA,IAIO;;;;;;;;;;;QAAAJ,CAAA,CAAA,EAAA,GAAAI,QAAA;QAAAJ,CAAA,CAAA,EAAA,GAAAK,EAAA;IAAA,OAAA;QAAAA,EAAA,GAAAL,CAAA,CAAA,EAAA;IAAA;IAAA,OAJPK,EAIO;AAAA;KANIP","ignoreList":[]}}]
+}

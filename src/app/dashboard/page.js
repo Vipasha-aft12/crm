@@ -9,8 +9,18 @@ import SideNav from "../../component/sidenav/SideNav";
 import Header from "../../component/header/Header";
 import DashboardArea from "../../component/dashboardarea/DashboardArea";
 import Footer from "../../component/footer/Footer";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const Dashboard = () => {
+      const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    if (!token) {
+      router.push("/");
+    }
+  }, []);
     return (
         <section className="dashboard">
             <div className="container-fluid dashboard-container-f">

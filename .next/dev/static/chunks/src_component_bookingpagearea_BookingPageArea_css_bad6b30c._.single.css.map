@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/component/bookingpagearea/BookingPageArea.css"],"sourcesContent":[".bookingpagebox-heading img{\n    height: 32px;\n    width: 32px;\n}\n.bookingpagebox{\n    background: #dfeaf5;\n    padding: 20px;\n    gap: 25px;\n}\n.bookingpagebox-tab{\n    background: white;\n    border-radius: 10px;\n    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;\n    gap: 15px;\n}\n.bookingpagebox-tab ul{\n    padding: 10px 20px;\n}\n.nav-pills .nav-link.active, .nav-pills .show > .nav-link {\n    color: black;\n    background-color: #dfeaf5;\n    border-radius: 50px;\n    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;\n    padding: 5px 30px;\n}\n.bookingpagebox-tab .nav-link{\n    display: flex !important;\n    color: black !important;\n    align-items: center !important;\n    font-size: 14px;\n    font-weight: 500;\n}\n.tab-pane h4{\n    border-left: 5px solid #396BCA;\n    border-radius: 0px;\n    padding: 5px 10px 5px 10px;\n    width: 100%;\n    background: #eef4fa;\n    font-weight: 700;\n    color: #0e3d6f;\n}"],"names":[],"mappings":"AAAA;;;;;AAIA;;;;;;AAKA;;;;;;;AAMA;;;;AAGA;;;;;;;;AAOA;;;;;;;;AAOA"}}]
+}

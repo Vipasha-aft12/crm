@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/component/bookingpmaintable/BookingpMainTable.css"],"sourcesContent":[".table-wrapper {\n  /*width: 1130px;*/\n  overflow-x: scroll !important;\n  -webkit-overflow-scrolling: touch;\n}\n.table-wrapper table{\n    /*width: 1130px;*/\n    max-width: none;\n    border-radius: 10px; \n    \n}\n\n.table-wrapper td {\n  white-space: nowrap;\n  border: 1px solid #ccc;\n  padding: 8px 12px;\n  font-size: 14px;\n  width: fit-content;\n}\n.table-wrapper th{\n    background: #396BCA;\n    color: white;\n    white-space: nowrap;\n  border: 1px solid #ccc;\n  padding: 8px 12px;\n  font-size: 15px;\n}\n.table-wrapper .form-select{\n  padding: 3px !important;\n}"],"names":[],"mappings":"AAAA;;;;;AAKA;;;;;AAOA;;;;;;;;AAOA;;;;;;;;;AAQA"}}]
+}
