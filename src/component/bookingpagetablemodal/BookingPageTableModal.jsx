@@ -1,271 +1,457 @@
 "use client";
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import './BookingPageTableModal.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import React, { useState, useId } from "react";
+import "./BookingPageTableModal.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { bookingDetails } from "../../lib/booking.api";
+import { cancelBooking } from "../../lib/cancel.api";
+import CancelBookingModal from "./CancelBookingModal";
+// import CancelBookingModal from "./CancelBookingModal";
 
-const BookingPageTableModal = () => {
+const BookingPageTableModal = ({ booking = {} }) => {
+  const modalId = useId().replace(/:/g, "");
+  const [loading, setLoading] = useState(false);
+  const [details, setDetails] = useState(null);
+  const [error, setError] = useState(null);
+// const [cancelLoading, setCancelLoading] = useState(false);
+// const [cancelError, setCancelError] = useState(null);
+// const [cancelSuccess, setCancelSuccess] = useState(null);
+// const [showCancelModal, setShowCancelModal] = useState(false);
+const [cancelLoading, setCancelLoading] = useState(false);
+const [cancelError, setCancelError] = useState(null);
+const [cancelSuccess, setCancelSuccess] = useState(null);
+const [showCancelModal, setShowCancelModal] = useState(false);
 
-    return (
-        <div className="bookkp-modal start fd-col">
+  const fetchDetails = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const res = await bookingDetails(booking.bookingId);
+      setDetails(res.data);
+    } catch (err) {
+      console.error("Booking fetch error:", err);
+      setError("Failed to load booking details");
+    } finally {
+      setLoading(false);
+    }
+  };
+//   const handleCancelBooking = async (reason) => {
+//     try {
+//       setCancelLoading(true);
+//       setCancelError(null);
 
-            <button type="button" className="btn bookkp-modal-button btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                TO100257847212
-            </button>
+//       const res = await cancelBooking(booking.bookingId, reason);
+
+//       if (res?.data?.success === false) {
+//         throw new Error(res?.data?.message || "Cancellation failed");
+//       }
+
+//       setCancelSuccess("Booking cancelled successfully");
+//       setShowCancelModal(false);
+
+//       // refresh
+//       await fetchDetails();
+//     } catch (err) {
+//       setCancelError(
+//         err?.response?.data?.message || err.message || "Cancellation failed",
+//       );
+//     } finally {
+//       setCancelLoading(false);
+//     }
+//   };
+
+const handleCancelBooking = async (reason) => {
+  try {
+    setCancelLoading(true);
+    setCancelError(null);
+    setCancelSuccess(null);
+
+    const res = await cancelBooking(booking.bookingId, reason);
+
+    if (res?.data?.success === false) {
+      throw new Error(res?.data?.message || "Cancellation failed");
+    }
+
+    setCancelSuccess("Booking cancelled successfully");
+    setShowCancelModal(false);
+
+    // refresh booking details
+    await fetchDetails();
+  } catch (err) {
+    setCancelError(
+      err?.response?.data?.message || err.message || "Cancellation failed",
+    );
+  } finally {
+    setCancelLoading(false);
+  }
+};
 
 
-            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body start fd-col">
-                            <div className="accordion start fd-col gap-3 w-100" id="accordionExample">
-                                <div className="accordion-item w-100">
-                                    <h2 className="accordion-header w-100" id="headingOne">
-                                        <button className="accordion-button w-100 btwn fd-row" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            <p> Cart Information: TJ100257847212</p>
+  const rate = details?.bookingHotelSnapshot?.rate?.pricing;
+  const hotel = details?.bookingHotelSnapshot?.hotel;
+  const user = details?.bookingUser;
+    const cancellation = details?.cancellation;
+    const isCancelled = details?.status === "CANCELLED";
+  const statusColor = (status) => {
+    if (!status) return "secondary";
+    if (status.toLowerCase().includes("confirm")) return "success";
+    if (status.toLowerCase().includes("cancel")) return "danger";
+    if (status.toLowerCase().includes("pending")) return "warning";
+    return "primary";
+  };
 
-                                            <div className="tab-box-collection cent fd-row">
-                                                <div className="tab-box cent fd-row">
-                                                    <p>Print Ticket</p>
-                                                    <Image
-                                                        src='/images/icons/printer.png'
-                                                        className="img-fluid"
-                                                        width={512}
-                                                        height={512}
-                                                        alt='site icon' />
-                                                </div>
-                                                <div className="tab-box cent fd-row">
-                                                    <p>Invoice</p>
-                                                    <Image
-                                                        src='/images/icons/printer.png'
-                                                        className="img-fluid"
-                                                        width={512}
-                                                        height={512}
-                                                        alt='site icon' />
-                                                </div>
-                                                <div className="tab-box cent fd-row">
-                                                    <p>Add Meal Seat Bag</p>
-                                                    <Image
-                                                        src='/images/icons/edit.png'
-                                                        className="img-fluid"
-                                                        width={512}
-                                                        height={512}
-                                                        alt='site icon' />
-                                                </div>
-                                                <div className="tab-box cent fd-row">
-                                                    <p>More Option</p>
-                                                    <Image
-                                                        src='/images/icons/view.png'
-                                                        className="img-fluid"
-                                                        width={512}
-                                                        height={512}
-                                                        alt='site icon' />
-                                                </div>
-                                            </div>
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div className="accordion-body">
-                                            <div className="cart-info start fd-row w-100">
-                                                <div className="cart-info-box start fd-col">
-                                                    <p>Booking ld :</p>
-                                                    <p><strong>T100257847212</strong></p>
-                                                </div>
-                                                <div className="cart-info-box start fd-col">
-                                                    <p>Amount : </p>
-                                                    <p><strong>₹ 73,287.00</strong></p>
-                                                </div>
-                                                <div className="cart-info-box start fd-col">
-                                                    <p>Status :</p>
-                                                    <p className="green-text"><strong>Success</strong></p>
-                                                </div>
-                                                <div className="cart-info-box start fd-col">
-                                                    <p>Order Type :</p>
-                                                    <p><strong>Air</strong></p>
-                                                </div>
-                                                <div className="cart-info-box start fd-col">
-                                                    <p>Channel Type : </p>
-                                                    <p><strong>Api</strong></p>
-                                                </div>
-                                                <div className="cart-info-box start fd-col">
-                                                    <p>CreatedOn :</p>
-                                                    <p><strong>Mar 2, 2023 12:34 AM</strong></p>
-                                                </div>
-                                                <div className="cart-info-box start fd-col">
-                                                    <p>Flow Type :</p>
-                                                    <p><strong>Online</strong></p>
-                                                </div>
-                                                <div className="cart-info-box start fd-col">
-                                                    <p>Agent Email :</p>
-                                                    <p><strong>cs@affluencetravels.com</strong></p>
-                                                </div>
-                                                <div className="cart-info-box start fd-col">
-                                                    <p>Agent Contact :</p>
-                                                    <p><strong>8929267385</strong></p>
-                                                </div>
-                                                <div className="cart-info-box start fd-col">
-                                                    <p>Loggedin User :</p>
-                                                    <p><strong>Affluence Travels Private Limited (api) (31006672)</strong></p>
-                                                </div>
-                                                <div className="cart-info-box start fd-col">
-                                                    <p>Booking User :</p>
-                                                    <p><strong>Affluence Travels Private Limited (api) (310066720)</strong></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="accordion-item w-100">
-                                    <h2 className="accordion-header w-100" id="headingTwo">
-                                        <button className="accordion-button btwn fd-row w-100 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            <p>Notes <span>0</span></p>
-                                            <div className="tab-box cent fd-row">
-                                                <p>+ Add Notes</p>
-                                            </div>
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div className="accordion-body">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="accordion-item w-100">
-                                    <h2 className="accordion-header w-100" id="headingThree">
-                                        <button className="accordion-button collapsed w-100 btwn fd-row" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            <p>Card Amedment <span>0</span></p>
-                                            <div className="tab-box cent fd-row">
-                                                <p>+ Raise Amendment</p>
-                                            </div>
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                        <div className="accordion-body">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="accordion-item w-100 last-booking-item">
-                                    <h2 className="accordion-header" id="headingfour">
-                                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                                            <p>Booking Details</p>
-                                        </button>
-                                    </h2>
-                                    <div id="collapsefour" className="accordion-collapse collapse" aria-labelledby="headingfour" data-bs-parent="#accordionExample">
-                                        <div className="accordion-body">
-                                            <div className="row b-detail-row start w-100">
-                                                <div className="col-12 b-detail-colone btwn fd-row">
-                                                    <div className="b-detail-airline cent fd-row">
-                                                        <Image
-                                                            src='/images/icons/vistara-uk.png'
-                                                            className="img-fluid"
-                                                            width={160}
-                                                            height={160}
-                                                            alt='site icon' />
-                                                        <div className="b-detail-airline-name start fd-col">
-                                                            <p><strong>Vistara</strong></p>
-                                                            <p>UK-853</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="b-detail-airline-d btwn fd-row">
-                                                        <div className="b-detail-airline-d-one">
-                                                            <p className="mb-2"><strong>Mumbai India (Chhatrapati Shivaji Maharaj International Air port)- BOM</strong></p>
-                                                            <p>16:00. Thu 9-Mar</p>
-                                                        </div>
-                                                        <div className="b-detail-airline-d-two cent fd-row">
-                                                            <Image
-                                                                src='/images/icons/dry-clean.png'
-                                                                className="img-fluid circle-image"
-                                                                width={512}
-                                                                height={512}
-                                                                alt='site icon' />
-                                                            <div className="b-detail-airline-d-one-stops cent">
-                                                                <div className="b-detail-airline-d-one-stops-line"></div>
-                                                                <p>Non-Stop</p>
-                                                                <div className="b-detail-airline-d-one-stops-line"></div>
-                                                            </div>
-                                                            <Image
-                                                                src='/images/icons/right-arrow.png'
-                                                                className="img-fluid right-arrow"
-                                                                width={32}
-                                                                height={32}
-                                                                alt='site icon' />
-                                                        </div>
-                                                        <div className="b-detail-airline-d-one b-detail-airline-d-three">
-                                                            <p className="mb-2"><strong>Bengaluru india (Bengaluru Intl Arpt)-BLR</strong></p>
-                                                            <p>17:45. Thu 9-Mar</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-4 b-detail-colone-coltwo">
-                                                    <div className="b-detail-colone-coltwobox start fd-col">
-                                                        <p>Last Name/First Name Title</p>
-                                                        <p><strong>1. THOMAS/CALVIN Mr. (A)</strong></p>
-                                                        <p><span>DOB : 05/09/1996</span></p>
-                                                    </div>
-                                                </div>
-                                                <div className="col-8 b-detail-colone-colthree start fd-row">
-                                                    <div className="b-detail-colone-colthreebox">
-                                                        <p className="mb-2">Base Fare</p>
-                                                        <p><strong>₹ 2.640.00</strong></p>
-                                                    </div>
-                                                    <div className="b-detail-colone-colthreebox">
-                                                        <p className="mb-2">Taxes</p>
-                                                        <p><strong>₹ 647.00</strong></p>
-                                                    </div>
-                                                    <div className="b-detail-colone-colthreebox">
-                                                        <p className="mb-2">Airine PNR</p>
-                                                        <p><strong>6XZ57C</strong></p>
-                                                    </div>
-                                                    <div className="b-detail-colone-colthreebox">
-                                                        <p className="mb-2">GDS PNR</p>
-                                                        <p><strong>3WO3C5</strong></p>
-                                                    </div>
-                                                    <div className="b-detail-colone-colthreebox">
-                                                        <p className="mb-2">Ticket Number</p>
-                                                        <p><strong>22892B9843547</strong></p>
-                                                    </div>
-                                                    <div className="b-detail-colone-colthreebox">
-                                                        <p className="mb-2">Commision</p>
-                                                        <p><strong>₹ 356.16</strong></p>
-                                                    </div>
-                                                    <div className="b-detail-colone-colthreebox">
-                                                        <p className="mb-2">Net Fare</p>
-                                                        <p><strong>₹ 2.948.65</strong></p>
-                                                    </div>
-                                                    <div className="b-detail-colone-colthreebox">
-                                                        <p className="mb-2">Gross Fare</p>
-                                                        <p><strong>3287</strong></p>
-                                                    </div>
-                                                    <div className="b-detail-colone-colthreebox">
-                                                        <p className="mb-2">Document ID</p>
-                                                        <p><strong>1234567</strong></p>
-                                                    </div>
-                                                    <div className="b-detail-colone-colthreebox">
-                                                        <p className="mb-2">EMD Number</p>
-                                                        <p><strong>123456</strong></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
+  {
+    cancelError && (
+      <div className="alert alert-danger text-center">{cancelError}</div>
+    );
+  }
+
+  {
+    cancelSuccess && (
+      <div className="alert alert-success text-center">{cancelSuccess}</div>
+    );
+  }
+
+
+  return (
+    <>
+      {/* Trigger */}
+      <button
+        type="button"
+        className="btn btn-sm btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target={`#${modalId}`}
+        onClick={fetchDetails}
+      >
+        {booking.bookingId || "View"}
+      </button>
+      {cancelError && (
+        <div className="alert alert-danger text-center">{cancelError}</div>
+      )}
+
+      {cancelSuccess && (
+        <div className="alert alert-success text-center">{cancelSuccess}</div>
+      )}
+      {/* <CancelBookingModal
+        show={showCancelModal}
+        onClose={() => setShowCancelModal(false)}
+        onConfirm={handleCancelBooking}
+        loading={cancelLoading}
+        bookingId={details?.bookingId}
+        amount={rate?.totalPayable}
+        refundable={cancellation?.refundable_amt || rate?.totalPayable}
+        policyText="Supplier cancellation charges apply. Refunds processed in 5–7 working days."
+      /> */}
+
+      {/* Modal */}
+      <div
+        className={`modal fade enterprise-modal ${showCancelModal ? "cancel-open" : ""}`}
+        id={modalId}
+        tabIndex="-1"
+      >
+        <div className="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+          <div className="modal-content">
+            {/* ===== Sticky Header ===== */}
+            <div className="modal-header enterprise-header sticky-top">
+              <div>
+                <h5 className="modal-title">Booking Console</h5>
+                <small className="text-muted">
+                  Cart ID: {details?.bookingId || "—"}
+                </small>
+              </div>
+
+              <div className="d-flex gap-2">
+                <span className={`badge bg-${statusColor(details?.status)}`}>
+                  {details?.status || "—"}
+                </span>
+
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                />
+              </div>
             </div>
-        </div>
-    )
-}
 
-export default BookingPageTableModal
+            {/* ===== Action Bar ===== */}
+            <div className="enterprise-action-bar">
+              <button className="action-btn">🖨 Print Ticket</button>
+              <button className="action-btn">📄 Invoice</button>
+              <button className="action-btn">✏️ Modify</button>
+              <button className="action-btn">📦 Services</button>
+              <button className="action-btn">⚙ More</button>
+            </div>
+
+            {/* ===== Body ===== */}
+            <div className="modal-body enterprise-body">
+              {/* Loader */}
+              {loading && (
+                <div className="skeleton-wrapper">
+                  {[...Array(6)].map((_, i) => (
+                    <div key={i} className="skeleton-card" />
+                  ))}
+                </div>
+              )}
+
+              {/* Error */}
+              {error && (
+                <div className="alert alert-danger text-center">{error}</div>
+              )}
+
+              {/* Data */}
+              {!loading && details && (
+                <div className="enterprise-grid">
+                  {/* Summary */}
+                  <section className="enterprise-card">
+                    <h6 className="section-title">Summary</h6>
+                    <div className="info-grid">
+                      <div>
+                        <span>Amount</span>
+                        <b>${rate?.totalPayable}</b>
+                      </div>
+                      <div>
+                        <span>Order Type</span>
+                        <b>HOTEL</b>
+                      </div>
+                      <div>
+                        <span>Channel</span>
+                        <b>API</b>
+                      </div>
+                      <div>
+                        <span>Created</span>
+                        <b>{new Date(details?.createdAt).toLocaleString()}</b>
+                      </div>
+                      <div>
+                        <span>Flow</span>
+                        <b>Online</b>
+                      </div>
+                      <div>
+                        <span>Order ID</span>
+                        <b>
+                          {details?.rawResponses?.preBooking?.data?.order_id}
+                        </b>
+                      </div>
+                    </div>
+                  </section>
+
+                  {/* User */}
+                  <section className="enterprise-card">
+                    <h6 className="section-title">User</h6>
+                    <div className="info-grid">
+                      <div>
+                        <span>Name</span>
+                        <b>
+                          {user?.firstName} {user?.lastName}
+                        </b>
+                      </div>
+                      <div>
+                        <span>Email</span>
+                        <b>{user?.email}</b>
+                      </div>
+                      <div>
+                        <span>Phone</span>
+                        <b>{user?.phone}</b>
+                      </div>
+                      <div>
+                        <span>Role</span>
+                        <b>Booking User</b>
+                      </div>
+                    </div>
+                  </section>
+
+                  {/* Hotel */}
+                  <section className="enterprise-card full">
+                    <h6 className="section-title">Hotel</h6>
+                    <p className="fw-bold">{hotel?.name}</p>
+                    <p className="text-muted">
+                      {hotel?.address?.address}, {hotel?.address?.city}
+                    </p>
+                    <div className="date-grid">
+                      <div>
+                        <span>Check-in</span>
+                        <b>{details?.request?.checkIn}</b>
+                      </div>
+                      <div>
+                        <span>Check-out</span>
+                        <b>{details?.request?.checkOut}</b>
+                      </div>
+                    </div>
+                  </section>
+
+                  {/* Guests */}
+                  <section className="enterprise-card full">
+                    <h6 className="section-title">Guests</h6>
+                    {details?.rooms?.map((room, i) => (
+                      <div key={i} className="room-block">
+                        <b>Room {i + 1}</b>
+                        {room.guests.map((g, j) => (
+                          <div key={j} className="guest-row">
+                            {g.first_name} {g.last_name} ({g.age})
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </section>
+
+                  {/* Pricing */}
+                  <section className="enterprise-card">
+                    <h6 className="section-title">Pricing</h6>
+                    <div className="price-grid">
+                      <div>
+                        <span>Base Fare</span>
+                        <b>${rate?.baseFare}</b>
+                      </div>
+                      <div>
+                        <span>Tax</span>
+                        <b>${rate?.taxAmount}</b>
+                      </div>
+                      <div>
+                        <span>Markup</span>
+                        <b>${rate?.markup?.amount}</b>
+                      </div>
+                      <div className="total">
+                        <span>Total</span>
+                        <b>${rate?.totalPayable}</b>
+                      </div>
+                    </div>
+                  </section>
+
+                  {/* Audit */}
+                  <section className="enterprise-card">
+                    <h6 className="section-title">Audit</h6>
+                    <div className="info-grid">
+                      <div>
+                        <span>Booking ID</span>
+                        <b>{details?.bookingId}</b>
+                      </div>
+                      <div>
+                        <span>Supplier</span>
+                        <b>RateHawk</b>
+                      </div>
+                      <div>
+                        <span>Status</span>
+                        <b>{details?.status}</b>
+                      </div>
+                      <div>
+                        <span>Source</span>
+                        <b>API</b>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              )}
+              {/* ===== Cancellation Details ===== */}
+              {isCancelled && cancellation && (
+                <section className="enterprise-card full cancel-card">
+                  <h6 className="section-title text-danger">
+                    Cancellation Details
+                  </h6>
+
+                  <div className="info-grid">
+                    <div>
+                      <span>Status</span>
+                      <b className="text-danger">CANCELLED</b>
+                    </div>
+
+                    <div>
+                      <span>Cancelled By</span>
+                      <b>{cancellation?.cancelledBy}</b>
+                    </div>
+
+                    <div>
+                      <span>Cancelled At</span>
+                      <b>
+                        {new Date(cancellation?.cancelledAt).toLocaleString()}
+                      </b>
+                    </div>
+
+                    <div>
+                      <span>Supplier Cancellation ID</span>
+                      <b>{cancellation?.supplierCancellationId}</b>
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <div className="price-grid">
+                    <div>
+                      <span>Booking Amount</span>
+                      <b>${cancellation?.booking_amt}</b>
+                    </div>
+
+                    <div>
+                      <span>Cancellation Charge</span>
+                      <b className="text-danger">
+                        ${cancellation?.cancellation_charge}
+                      </b>
+                    </div>
+
+                    <div>
+                      <span>Refundable Amount</span>
+                      <b className="text-success">
+                        ${cancellation?.refundable_amt}
+                      </b>
+                    </div>
+                  </div>
+
+                  {cancellation?.remark && (
+                    <>
+                      <hr />
+                      <div>
+                        <span>Remark</span>
+                        <p className="fw-semibold">{cancellation?.remark}</p>
+                      </div>
+                    </>
+                  )}
+                </section>
+              )}
+            </div>
+
+            {/* ===== Sticky Footer ===== */}
+            <div className="modal-footer enterprise-footer sticky-bottom">
+              <div className="left">
+                <span className="text-muted">
+                  System Ref: {details?.bookingId || "—"}
+                </span>
+              </div>
+              <div className="right">
+                {/* <button className="btn btn-outline-secondary">
+                  Cancel Booking
+                </button> */}
+                {/* <button
+                  className="btn btn-outline-danger"
+                  disabled={isCancelled}
+                  onClick={() => setShowCancelModal(true)}
+                >
+                  {isCancelled ? "Already Cancelled" : "Cancel Booking"}
+                </button> */}
+
+                <button
+                  className="btn btn-outline-danger"
+                  disabled={isCancelled}
+                  onClick={() => setShowCancelModal(true)}
+                >
+                  {isCancelled ? "Already Cancelled" : "Cancel Booking"}
+                </button>
+
+                <button className="btn btn-primary">Support Ticket</button>
+                <button className="btn btn-secondary" data-bs-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <CancelBookingModal
+        show={showCancelModal}
+        onClose={() => setShowCancelModal(false)}
+        onConfirm={handleCancelBooking}
+        loading={cancelLoading}
+        bookingId={details?.bookingId}
+      />
+    </>
+  );
+};
+
+export default BookingPageTableModal;

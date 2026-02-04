@@ -73,7 +73,7 @@ const BookingPageTable = ({ bookings, loading, error, type }) => {
           {loading && <p>Loading bookings...</p>}
           {error && <p className="text-danger">{error}</p>}
 
-          <BookingpMainTable bookings={bookings} />
+          <BookingpMainTable bookings={bookings} type={type} />
         </div>
       ) : (
         <BookingpMainTable />
